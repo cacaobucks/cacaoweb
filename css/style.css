@@ -684,3 +684,206 @@ a {
   border-top: 1px solid var(--border);
   letter-spacing: 0.02em;
 }
+
+/* ============================================================
+   HAMBURGER BUTTON
+   ============================================================ */
+.nav__hamburger {
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s;
+}
+
+.nav__hamburger:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  pointer-events: none;
+  transition: transform 0.3s var(--easing), opacity 0.3s var(--easing);
+}
+
+.nav__hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav__hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav__hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile nav dropdown — shown when nav has .nav-open class */
+.nav-open .nav__links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  padding: 4px 20px 16px;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  z-index: 190;
+}
+
+.nav-open .nav__links li {
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-open .nav__links li:last-child {
+  border-bottom: none;
+}
+
+.nav-open .nav__links a {
+  display: block;
+  padding: 14px 4px;
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤767px)
+   ============================================================ */
+@media (max-width: 767px) {
+
+  /* Nav */
+  .nav__inner {
+    padding: 0 20px;
+  }
+
+  /* Sections */
+  .section {
+    padding: 64px 0;
+  }
+
+  .section__inner {
+    padding: 0 20px;
+  }
+
+  /* Hero */
+  .hero__content {
+    flex-direction: column;
+    padding: 40px 20px 60px;
+    gap: 28px;
+  }
+
+  .hero__text {
+    flex: none;
+    width: 100%;
+  }
+
+  .hero__image-wrap {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero__image {
+    max-width: 100%;
+  }
+
+  /* Introduction */
+  .intro__card {
+    padding: 28px 20px 24px;
+  }
+
+  /* Hobby — single column, auto row height */
+  .hobby__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 12px;
+  }
+
+  .hobby__cell--image {
+    height: 220px;
+  }
+
+  .hobby__cell--text {
+    padding: 24px 20px 20px;
+  }
+
+  /* Portfolio */
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  /* Achievement — narrow year column */
+  .achievement__list::before {
+    left: 68px;
+  }
+
+  .achievement__year-wrap {
+    flex: 0 0 68px;
+    padding-right: 12px;
+  }
+
+  .achievement__content {
+    padding-left: 16px;
+  }
+
+  .achievement__heading {
+    font-size: 0.9375rem;
+  }
+
+  /* SNS */
+  .sns__grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 24px 20px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (768px – 1023px)
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav__inner,
+  .section__inner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .hero__content {
+    padding-left: 32px;
+    padding-right: 32px;
+    gap: 32px;
+  }
+
+  .hobby__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+  }
+
+  .hobby__cell--image {
+    height: 260px;
+  }
+
+  .sns__grid {
+    max-width: 100%;
+  }
+}

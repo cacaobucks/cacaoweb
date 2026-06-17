@@ -91,10 +91,41 @@ function patchTranslateButtonLabel() {
   }
 }
 
+// ── Hamburger menu (mobile nav) ───────────────────────────────
+function initHamburgerMenu() {
+  const hamburger = document.getElementById('nav-hamburger');
+  const nav       = document.getElementById('nav');
+  const navLinks  = nav ? nav.querySelector('.nav__links') : null;
+  if (!hamburger || !nav || !navLinks) return;
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      nav.classList.remove('nav-open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 // ── Boot ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   patchTranslateButtonLabel();
   initIntroToggle();
   initScrollReveal();
   initActiveNav();
+  initHamburgerMenu();
 });

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cacao — AI Consultant & Developer</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { corePlugins: { preflight: false } }</script>
 </head>
 <body>
 
@@ -12,13 +14,18 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a class="nav__logo" href="#top">Cacao</a>
-      <ul class="nav__links">
+      <ul class="nav__links hidden md:flex">
         <li><a href="#introduction" data-section="introduction">Introduction</a></li>
         <li><a href="#hobby" data-section="hobby">My Hobby</a></li>
         <li><a href="#portfolio" data-section="portfolio">Portfolio</a></li>
         <li><a href="#achievement" data-section="achievement">Achievement</a></li>
         <li><a href="#sns" data-section="sns">My SNS</a></li>
       </ul>
+      <button type="button" class="nav__hamburger flex md:hidden" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
