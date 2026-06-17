@@ -1,25 +1,47 @@
-# Cacao — 自己紹介 WEBサイト
+<div align="center">
 
-自己紹介を目的とした洗練されたシングルページ LP です。
-外部フレームワーク不使用の純粋な HTML / CSS / JavaScript で実装されています。
+# Cacao — Personal Introduction Website
+
+A refined single-page landing site built with zero external dependencies.
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![No Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen?style=flat-square)
+
+![preview](sample_images/readme.png)
+
+</div>
 
 ---
 
-## 目次
+## Table of Contents
 
-- [ページ構成](#ページ構成)
-- [ディレクトリ構成](#ディレクトリ構成)
-- [ローカル起動方法](#ローカル起動方法)
-- [各セクションの仕様](#各セクションの仕様)
-- [使用技術](#使用技術)
-- [画像ファイルの差し替え方法](#画像ファイルの差し替え方法)
+- [Page Structure](#page-structure)
+- [Directory Layout](#directory-layout)
+- [Getting Started](#getting-started)
+- [Section Specs](#section-specs)
+- [Tech Stack](#tech-stack)
+- [Swapping Images](#swapping-images)
 
 ---
 
-## ページ構成
+## Page Structure
+
+| # | Section | Description |
+|:-:|---------|-------------|
+| 1 | **Top** | Hero view — text slides top→down, image slides bottom→up on load |
+| 2 | **Introduction** | Self-introduction card with EN / JA language toggle |
+| 3 | **My Hobby** | 3×2 bento-grid hobby showcase |
+| 4 | **Portfolio** | Stacked-card grid with fan-spread hover effect |
+| 5 | **Achievement** | Career & milestone timeline |
+| 6 | **My SNS** | X (Twitter) and Zenn link cards |
+
+<details>
+<summary>日本語で読む</summary>
 
 | # | セクション | 概要 |
-|---|-----------|------|
+|:-:|-----------|------|
 | 1 | **Top** | ファーストビュー。テキスト上→下・画像下→上スライドイン |
 | 2 | **Introduction** | 自己紹介文（英語 / 日本語 切替対応） |
 | 3 | **My Hobby** | 趣味紹介（3×2 ベントグリッドレイアウト） |
@@ -27,9 +49,34 @@
 | 5 | **Achievement** | 経歴・実績タイムライン |
 | 6 | **My SNS** | X（Twitter）・Zenn リンクカード |
 
+</details>
+
 ---
 
-## ディレクトリ構成
+## Directory Layout
+
+```
+_myweb_/
+├── index.html                  # Main page (all sections)
+├── css/
+│   └── style.css               # All styles
+├── js/
+│   └── script.js               # Language toggle & scroll animations
+├── sample_images/
+│   ├── dish_cacao.png          # Hero section right-column image
+│   ├── IMG_9048.jpg            # My Hobby: Golf
+│   ├── IMG_5807.jpg            # My Hobby: Sauna
+│   ├── IMG_7958.jpg            # My Hobby: Overseas travel
+│   └── readme.png              # README preview screenshot
+├── documents/
+│   └── 設計書.md               # Design specification document
+├── package.json                # npm script definitions
+├── start.sh                    # Local server launch script
+└── README.md                   # This file
+```
+
+<details>
+<summary>日本語で読む</summary>
 
 ```
 _myweb_/
@@ -42,7 +89,8 @@ _myweb_/
 │   ├── dish_cacao.png          # トップページ右側の画像
 │   ├── IMG_9048.jpg            # My Hobby: Golf 画像
 │   ├── IMG_5807.jpg            # My Hobby: Sauna 画像
-│   └── IMG_7958.jpg            # My Hobby: Overseas travel 画像
+│   ├── IMG_7958.jpg            # My Hobby: Overseas travel 画像
+│   └── readme.png              # README プレビュー画像
 ├── documents/
 │   └── 設計書.md               # WEBサイト設計仕様書
 ├── package.json                # npm スクリプト定義
@@ -50,23 +98,50 @@ _myweb_/
 └── README.md                   # このファイル
 ```
 
+</details>
+
 ---
 
-## ローカル起動方法
+## Getting Started
 
-### 方法 1：シェルスクリプト（推奨）
+### Option 1 — Shell script *(recommended)*
 
-最もシンプルな起動方法です。Python3 が標準搭載の macOS / Linux で動作します。
+Works on macOS / Linux with Python 3 pre-installed.
 
 ```bash
 ./start.sh
 ```
 
-起動後、ブラウザで以下の URL にアクセスしてください。
+Then open your browser at `http://localhost:3000`.
 
+### Option 2 — Python 3 directly
+
+```bash
+python3 -m http.server 3000
 ```
-http://localhost:3000
+
+### Option 3 — npm *(requires Node.js)*
+
+```bash
+npm start
 ```
+
+> `npm start` uses `npx serve` internally. On first run you may be prompted to install the `serve` package — enter `y` to proceed.
+
+To stop the server, press `Ctrl + C` in the terminal.
+
+<details>
+<summary>日本語で読む</summary>
+
+### 方法 1：シェルスクリプト（推奨）
+
+Python3 が標準搭載の macOS / Linux で動作します。
+
+```bash
+./start.sh
+```
+
+起動後、ブラウザで `http://localhost:3000` にアクセスしてください。
 
 ### 方法 2：Python3 コマンド直接実行
 
@@ -80,22 +155,71 @@ python3 -m http.server 3000
 npm start
 ```
 
-> **注意：** `npm start` は内部で `npx serve` を使用します。初回実行時に `serve` パッケージのインストール確認が表示される場合があります。`y` を入力してインストールを許可してください。
+> `npm start` は内部で `npx serve` を使用します。初回実行時に `serve` パッケージのインストール確認が表示される場合があります。`y` を入力してインストールを許可してください。
 
-### サーバーの停止
+サーバーを停止するには、ターミナルで `Ctrl + C` を押してください。
 
-ターミナルで `Ctrl + C` を押すとサーバーが停止します。
+</details>
 
 ---
 
-## 各セクションの仕様
+## Section Specs
+
+### Top (Hero)
+
+- Left column: caption text `I'm Cacao`
+- Right column: `dish_cacao.png`
+- Text slides top→down on page load (`translateY(-60px)` → `0`)
+- Image slides bottom→up on page load (`translateY(60px)` → `0`)
+
+### Introduction
+
+- Defaults to English text
+- Clicking **"Translate into Japanese"** (bottom-right of card) switches to Japanese
+- Click again to revert — animated with a fade transition
+
+### My Hobby
+
+- 3-column × 2-row bento grid layout
+- Image cells scale to `1.06` on hover
+- Sauna text cell uses a dark background (`#2d2419`)
+
+```
+┌─────────────┬───────────────┬─────────────┐
+│  Golf img   │  Golf text    │  Sauna img  │
+├─────────────┼───────────────┼─────────────┤
+│ Sauna text  │  Travel img   │ Travel text │
+└─────────────┴───────────────┴─────────────┘
+```
+
+### Portfolio
+
+- 2-column × 2-row grid (4 items total)
+- Each item renders 3 stacked cards
+- Hover spreads the stack in a fan-out animation
+- Center label: `Coming Soon`
+
+### Achievement
+
+- Timeline layout: year label on the left, content on the right
+- Current item highlighted in accent color (cacao brown `#6B4226`)
+
+### My SNS
+
+| Platform | URL |
+|----------|-----|
+| X (Twitter) | https://x.com/cacaobucks |
+| Zenn | https://zenn.dev/cacao_devlog |
+
+<details>
+<summary>日本語で読む</summary>
 
 ### Top（ヒーロー）
 
-- 左カラムに小さなテキスト `I'm Cacao` を表示
+- 左カラムにテキスト `I'm Cacao` を表示
 - 右カラムに `dish_cacao.png` を表示
-- **テキスト**：ページ読み込み時に上から下へスライドイン（`translateY(-60px)` → `0`）
-- **画像**：下から上へスライドイン（`translateY(60px)` → `0`）
+- テキスト：ページ読み込み時に上から下へスライドイン（`translateY(-60px)` → `0`）
+- 画像：下から上へスライドイン（`translateY(60px)` → `0`）
 
 ### Introduction
 
@@ -105,7 +229,7 @@ npm start
 
 ### My Hobby
 
-- `sample_design_1.png` を参考にした **3 列 × 2 行のベントグリッド**
+- 3 列 × 2 行のベントグリッドレイアウト
 - 画像セルにマウスオーバーで `scale(1.06)` の拡大エフェクト
 - Sauna テキストセルはダーク背景（`#2d2419`）
 
@@ -117,8 +241,8 @@ npm start
 ### Portfolio
 
 - 2 列 × 2 行のグリッド（計 4 アイテム）
-- 各アイテムは **3 枚のカードをスタック表示**
-- マウスオーバーでカードが **扇状に広がる**ホバーエフェクト
+- 各アイテムは 3 枚のカードをスタック表示
+- マウスオーバーでカードが扇状に広がるホバーエフェクト
 - 各カードの中央に `Coming Soon` を表示
 
 ### Achievement
@@ -133,9 +257,23 @@ npm start
 | X（Twitter） | https://x.com/cacaobucks |
 | Zenn | https://zenn.dev/cacao_devlog |
 
+</details>
+
 ---
 
-## 使用技術
+## Tech Stack
+
+| Layer | Detail |
+|-------|--------|
+| **HTML** | HTML5 semantic markup |
+| **CSS** | CSS3 · Custom Properties · Grid · Flexbox · Keyframe Animations |
+| **JavaScript** | Vanilla JS (ES2020) · `IntersectionObserver` API |
+| **Font** | `-apple-system` (San Francisco on iOS / macOS) |
+| **Icons** | Inline SVG |
+| **Dependencies** | None — local server via `serve` or Python 3 |
+
+<details>
+<summary>日本語で読む</summary>
 
 | 種別 | 内容 |
 |------|------|
@@ -146,14 +284,38 @@ npm start
 | **アイコン** | SVG インライン |
 | **外部依存** | なし（ローカルサーバーに `serve` または Python3 を使用） |
 
+</details>
+
 ---
 
-## 画像ファイルの差し替え方法
+## Swapping Images
+
+### Hero image
+
+Replace `sample_images/dish_cacao.png` with a file of the same name, or update the `src` attribute in `index.html`:
+
+```html
+<img class="hero__image" src="sample_images/dish_cacao.png" alt="...">
+```
+
+### My Hobby images
+
+| Section | Current file | Where to edit |
+|---------|-------------|---------------|
+| Golf | `IMG_9048.jpg` | `src` of `alt="Golf course"` in `index.html` |
+| Sauna | `IMG_5807.jpg` | `src` of `alt="Sauna facility"` in `index.html` |
+| Overseas travel | `IMG_7958.jpg` | `src` of `alt="Overseas travel"` in `index.html` |
+
+### Adding Portfolio works
+
+To replace a `Coming Soon` card, add content inside `.card--1` within the relevant `.card-stack` in `index.html`, then extend `.card__label` in `css/style.css`.
+
+<details>
+<summary>日本語で読む</summary>
 
 ### トップページ画像の変更
 
-`sample_images/dish_cacao.png` を同名の別の画像ファイルに差し替えるか、
-`index.html` 内の以下の箇所のファイルパスを変更してください。
+`sample_images/dish_cacao.png` を同名の別ファイルに差し替えるか、`index.html` 内の `src` 属性を変更してください。
 
 ```html
 <img class="hero__image" src="sample_images/dish_cacao.png" alt="...">
@@ -161,16 +323,14 @@ npm start
 
 ### My Hobby セクションの画像変更
 
-| セクション | 現在のファイル | 変更先のファイルパスを記述する箇所 |
-|-----------|--------------|----------------------------------|
+| セクション | 現在のファイル | 変更箇所 |
+|-----------|--------------|----------|
 | Golf | `IMG_9048.jpg` | `index.html` 内 `alt="Golf course"` の `src` 属性 |
 | Sauna | `IMG_5807.jpg` | `index.html` 内 `alt="Sauna facility"` の `src` 属性 |
 | Overseas travel | `IMG_7958.jpg` | `index.html` 内 `alt="Overseas travel"` の `src` 属性 |
 
----
+### Portfolio の作品追加方法
 
-## Portfolio の作品追加方法
+`Coming Soon` カードに作品を追加する場合、`index.html` の各 `.card-stack` 内の `.card--1` にタイトルや画像を追加し、`css/style.css` の `.card__label` を拡張してください。
 
-現在 `Coming Soon` と表示されているカードに作品を追加する場合、
-`index.html` の各 `.card-stack` 内の `.card--1` にタイトルや画像を追加し、
-`css/style.css` の `.card__label` を拡張してください。
+</details>
