@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cacao — AI Consultant & Developer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#top">Cacao</a>
+      <ul class="nav__links">
+        <li><a href="#introduction" data-section="introduction">Introduction</a></li>
+        <li><a href="#hobby" data-section="hobby">My Hobby</a></li>
+        <li><a href="#portfolio" data-section="portfolio">Portfolio</a></li>
+        <li><a href="#achievement" data-section="achievement">Achievement</a></li>
+        <li><a href="#sns" data-section="sns">My SNS</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== 1. TOP ========== -->
+  <section class="section hero" id="top">
+    <div class="hero__content">
+      <div class="hero__text">
+        <span class="hero__label">Hello, I'm</span>
+        <h1 class="hero__name">Cacao</h1>
+      </div>
+      <div class="hero__image-wrap">
+        <img
+          class="hero__image"
+          src="sample_images/dish_cacao.png"
+          alt="Cacao — a hand holding a plate of cacao beans"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 2. INTRODUCTION ========== -->
+  <section class="section intro reveal" id="introduction">
+    <div class="section__inner">
+      <p class="section__eyebrow">02 — About me</p>
+      <h2 class="section__title">Introduction</h2>
+      <div class="intro__card">
+        <p class="intro__text" id="intro-text">
+          Thank you for visiting my website. I'm Cacao. I currently work as an AI consultant. In parallel, I develop projects on my own during my free time outside of work on weekdays and on weekends. 
+          I became interested in jobs that utilize IT and AI technologies during my student days, and I have been continuously improving myself ever since. In graduate school, I conducted research on RAG, 
+          and at a national research institute, I implemented AI chatbots and open-source image recognition using LLM. In the future, I aim to be active in the field of generative AI, and I hope to continue 
+          growing through my main job and self-improvement.
+        </p>
+        <div class="intro__footer">
+          <button class="intro__translate-btn" id="translate-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            Translate into Japanese
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3. MY HOBBY ========== -->
+  <section class="section hobby reveal" id="hobby">
+    <div class="section__inner">
+      <p class="section__eyebrow">03 — Interests</p>
+      <h2 class="section__title">My Hobby</h2>
+      <div class="hobby__grid">
+
+        <!-- Golf: Image -->
+        <div class="hobby__cell hobby__cell--image">
+          <img src="sample_images/IMG_9048.jpg" alt="Golf course">
+        </div>
+
+        <!-- Golf: Text -->
+        <div class="hobby__cell hobby__cell--text">
+          <span class="hobby__tag">Golf</span>
+          <h3 class="hobby__name">Golf</h3>
+          <p class="hobby__desc">
+            I'm aiming to score in the 90s by 2026, and I'm diligently practicing
+            and playing rounds. Playing in nature also provides me with opportunities
+            for digital detox.
+          </p>
+        </div>
+
+        <!-- Sauna: Image -->
+        <div class="hobby__cell hobby__cell--image">
+          <img src="sample_images/IMG_5807.jpg" alt="Sauna facility">
+        </div>
+
+        <!-- Sauna: Text (dark) -->
+        <div class="hobby__cell hobby__cell--text hobby__cell--dark">
+          <span class="hobby__tag">Sauna</span>
+          <h3 class="hobby__name">Sauna</h3>
+          <p class="hobby__desc">
+            I experience the phenomenon of "getting into the zone" and relieve stress
+            every day. Lately, I've been enjoying the harmonious experience of combining
+            studying and sauna as part of a workation.
+          </p>
+        </div>
+
+        <!-- Overseas travel: Image -->
+        <div class="hobby__cell hobby__cell--image">
+          <img src="sample_images/IMG_7958.jpg" alt="Overseas travel">
+        </div>
+
+        <!-- Overseas travel: Text -->
+        <div class="hobby__cell hobby__cell--text">
+          <span class="hobby__tag">Overseas travel</span>
+          <h3 class="hobby__name">Overseas travel</h3>
+          <p class="hobby__desc">
+            I want to travel to many different places throughout my life. So far, I've been to the United States, Vietnam, and Switzerland. Through firsthand experiences in those places, I've been able to gain various values.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4. PORTFOLIO ========== -->
+  <section class="section portfolio reveal" id="portfolio">
+    <div class="section__inner">
+      <p class="section__eyebrow">04 — Works</p>
+      <h2 class="section__title">Portfolio</h2>
+      <p class="section__subtitle">Personal projects &amp; works</p>
+      <div class="portfolio__grid">
+
+        <div class="portfolio__item">
+          <div class="card-stack">
+            <div class="card card--3"></div>
+            <div class="card card--2"></div>
+            <div class="card card--1">
+              <span class="card__label">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio__item">
+          <div class="card-stack">
+            <div class="card card--3"></div>
+            <div class="card card--2"></div>
+            <div class="card card--1">
+              <span class="card__label">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio__item">
+          <div class="card-stack">
+            <div class="card card--3"></div>
+            <div class="card card--2"></div>
+            <div class="card card--1">
+              <span class="card__label">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio__item">
+          <div class="card-stack">
+            <div class="card card--3"></div>
+            <div class="card card--2"></div>
+            <div class="card card--1">
+              <span class="card__label">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 5. ACHIEVEMENT ========== -->
+  <section class="section achievement reveal" id="achievement">
+    <div class="section__inner">
+      <p class="section__eyebrow">05 — Career</p>
+      <h2 class="section__title">Achievement</h2>
+      <div class="achievement__list">
+
+        <div class="achievement__item">
+          <div class="achievement__year-wrap">
+            <span class="achievement__year">2023–2024</span>
+          </div>
+          <div class="achievement__dot"></div>
+          <div class="achievement__content">
+            <h3 class="achievement__heading">Programming School Mentor</h3>
+            <p class="achievement__desc">Worked as a mentor at a programming school (internship)</p>
+          </div>
+        </div>
+
+        <div class="achievement__item">
+          <div class="achievement__year-wrap">
+            <span class="achievement__year">2024–2026</span>
+          </div>
+          <div class="achievement__dot"></div>
+          <div class="achievement__content">
+            <h3 class="achievement__heading">Graduate Research — Tokyo City University</h3>
+            <p class="achievement__desc">Engaged in research on RAGFusion hallucination reduction at the Graduate School of Information Systems</p>
+          </div>
+        </div>
+
+        <div class="achievement__item">
+          <div class="achievement__year-wrap">
+            <span class="achievement__year">2024–2026</span>
+          </div>
+          <div class="achievement__dot"></div>
+          <div class="achievement__content">
+            <h3 class="achievement__heading">JAMSTEC — AI Implementation &amp; RAG Book</h3>
+            <p class="achievement__desc">Implemented image estimation OSS using AI chatbots and LLM at the Japan Agency for Marine-Earth Science and Technology. Authored a book on RAG.</p>
+          </div>
+        </div>
+
+        <div class="achievement__item achievement__item--current">
+          <div class="achievement__year-wrap">
+            <span class="achievement__year">Currently</span>
+          </div>
+          <div class="achievement__dot"></div>
+          <div class="achievement__content">
+            <h3 class="achievement__heading">IT Consultant</h3>
+            <p class="achievement__desc">Working as an IT consultant (full-time employee) in the AI &amp; disaster mitigation field</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 6. MY SNS ========== -->
+  <section class="section sns reveal" id="sns">
+    <div class="section__inner">
+      <p class="section__eyebrow">06 — Connect</p>
+      <h2 class="section__title">My SNS</h2>
+      <p class="section__subtitle">Find me on the internet</p>
+      <div class="sns__grid">
+
+        <a class="sns__card" href="https://x.com/cacaobucks" target="_blank" rel="noopener noreferrer">
+          <div class="sns__icon sns__icon--x">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </div>
+          <div class="sns__info">
+            <h3 class="sns__name">X (Twitter)</h3>
+            <p class="sns__handle">@cacaobucks</p>
+          </div>
+          <span class="sns__arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="sns__card" href="https://zenn.dev/cacao_devlog" target="_blank" rel="noopener noreferrer">
+          <div class="sns__icon sns__icon--zenn">
+            <svg viewBox="0 0 88 88" fill="currentColor" width="22" height="22" aria-hidden="true">
+              <path d="M9.5 74.9L34.7 13h15.9L25.4 74.9H9.5zM44 74.9l25.2-61.9H85L59.9 74.9H44z"/>
+            </svg>
+          </div>
+          <div class="sns__info">
+            <h3 class="sns__name">Zenn</h3>
+            <p class="sns__handle">cacao_devlog</p>
+          </div>
+          <span class="sns__arrow" aria-hidden="true">→</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>© 2026 Cacao. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
