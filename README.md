@@ -130,6 +130,12 @@ npm start
 
 To stop the server, press `Ctrl + C` in the terminal.
 
+If the server is still running in the background (e.g. the terminal was closed without stopping it), force-kill it with:
+
+```bash
+kill $(lsof -ti :3000)
+```
+
 <details>
 <summary>日本語で読む</summary>
 
@@ -158,6 +164,12 @@ npm start
 > `npm start` は内部で `npx serve` を使用します。初回実行時に `serve` パッケージのインストール確認が表示される場合があります。`y` を入力してインストールを許可してください。
 
 サーバーを停止するには、ターミナルで `Ctrl + C` を押してください。
+
+ターミナルを閉じるなどしてサーバーがバックグラウンドで残っている場合は、以下のコマンドで強制終了してください。
+
+```bash
+kill $(lsof -ti :3000)
+```
 
 </details>
 
