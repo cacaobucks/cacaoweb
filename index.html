@@ -11,7 +11,7 @@
 <body>
 
   <!-- ========== NAVIGATION ========== -->
-  <nav class="nav" id="nav">
+  <nav class="nav nav--hidden" id="nav">
     <div class="nav__inner">
       <a class="nav__logo" href="#top">Cacao</a>
       <ul class="nav__links hidden md:flex">
@@ -31,17 +31,16 @@
 
   <!-- ========== 1. TOP ========== -->
   <section class="section hero" id="top">
+    <div class="hero__video-bg">
+      <video autoplay muted loop playsinline>
+        <source src="cacaoweb.mp4" type="video/mp4">
+      </video>
+      <div class="hero__video-overlay"></div>
+    </div>
     <div class="hero__content">
       <div class="hero__text">
         <span class="hero__label">Hello, I'm</span>
         <h1 class="hero__name">Cacao</h1>
-      </div>
-      <div class="hero__image-wrap">
-        <img
-          class="hero__image"
-          src="sample_images/dish_cacao.png"
-          alt="Cacao — a hand holding a plate of cacao beans"
-        >
       </div>
     </div>
   </section>

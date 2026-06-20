@@ -121,6 +121,24 @@ function initHamburgerMenu() {
   });
 }
 
+// ── Hide nav while hero is visible ────────────────────────────
+function initHeroNav() {
+  const nav  = document.getElementById('nav');
+  const hero = document.getElementById('top');
+  if (!nav || !hero) return;
+
+  function updateNavStyle() {
+    nav.classList.toggle('nav--hidden', window.scrollY < hero.offsetHeight);
+  }
+
+  // Apply initial state without transition to avoid flash
+  nav.style.transition = 'none';
+  updateNavStyle();
+  requestAnimationFrame(() => requestAnimationFrame(() => { nav.style.transition = ''; }));
+
+  window.addEventListener('scroll', updateNavStyle, { passive: true });
+}
+
 // ── Boot ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   patchTranslateButtonLabel();
@@ -128,4 +146,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initActiveNav();
   initHamburgerMenu();
+  initHeroNav();
 });

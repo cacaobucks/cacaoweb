@@ -29,6 +29,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  scroll-padding-top: 64px;
 }
 
 body {
@@ -54,13 +55,22 @@ a {
    NAVIGATION
    ============================================================ */
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 200;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
+  transition: transform 0.4s var(--easing);
+}
+
+/* Hidden nav state — active while hero section is in view */
+.nav--hidden {
+  transform: translateY(-100%);
+  pointer-events: none;
 }
 
 .nav__inner {
@@ -180,6 +190,7 @@ a {
    HERO SECTION
    ============================================================ */
 .hero {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -187,20 +198,40 @@ a {
   overflow: hidden;
 }
 
+/* Video background */
+.hero__video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
 .hero__content {
+  position: relative;
+  z-index: 1;
   max-width: 1160px;
   margin: 0 auto;
   padding: 0 48px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  justify-content: center;
 }
 
 /* Text: slides in from top */
 .hero__text {
-  flex: 0 0 40%;
+  text-align: center;
   opacity: 0;
   transform: translateY(-60px);
   animation: slideDown 0.9s var(--easing) 0.3s forwards;
@@ -213,7 +244,7 @@ a {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #000000;
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 10px;
 }
 
@@ -221,7 +252,7 @@ a {
   font-family: var(--font);
   font-size: clamp(0.875rem, 1.6vw, 1.25rem);
   font-weight: 500;
-  color: #000000;
+  color: #ffffff;
   letter-spacing: 0.04em;
   line-height: 1.3;
 }
